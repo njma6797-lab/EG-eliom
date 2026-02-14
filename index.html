@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أخبار المحمودية الآن | موقع إخباري رسمي</title>
+<meta name="description" content="أخبار المحمودية الآن - متابعة لحظة بلحظة لأهم الأخبار المحلية بمحافظة البحيرة من مصادر موثوقة.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="أخبار المحمودية الآن">
+<meta property="og:description" content="تابع أحدث أخبار المحمودية والبحيرة لحظة بلحظة">
+<meta property="og:image" content="1.png">
+<meta property="og:type" content="website">
+
+<style>
+body{
+margin:0;
+font-family:Tahoma;
+background:#f4f4f4;
+}
+
+header{
+background:#b30000;
+color:#fff;
+padding:20px;
+text-align:center;
+font-size:30px;
+font-weight:bold;
+}
+
+nav{
+background:#111;
+color:#fff;
+text-align:center;
+padding:10px;
+}
+
+nav a{
+color:#fff;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.container{
+width:95%;
+max-width:1200px;
+margin:auto;
+margin-top:20px;
+display:flex;
+gap:20px;
+}
+
+.main{
+flex:3;
+}
+
+.sidebar{
+flex:1;
+background:#fff;
+padding:15px;
+border-radius:6px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+height:fit-content;
+}
+
+.news{
+background:#fff;
+margin-bottom:20px;
+padding:15px;
+border-radius:6px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+cursor:pointer;
+}
+
+.news h2{
+margin:0 0 10px;
+color:#b30000;
+}
+
+.meta{
+font-size:14px;
+color:#666;
+margin-bottom:10px;
+}
+
+.urgent{
+background:red;
+color:#fff;
+padding:3px 8px;
+font-size:13px;
+border-radius:4px;
+margin-left:5px;
+}
+
+img,video{
+width:100%;
+border-radius:5px;
+margin-top:10px;
+}
+
+.article-page{
+display:none;
+background:#fff;
+padding:20px;
+border-radius:6px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+footer{
+background:#111;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<header>أخبار المحمودية الآن</header>
+
+<nav>
+<a href="#" onclick="showHome()">الرئيسية</a>
+<a href="#archive">الأرشيف</a>
+</nav>
+
+<div class="container">
+
+<div class="main" id="home"></div>
+
+<div class="sidebar">
+<h3>أرشيف الأخبار</h3>
+<div id="archive"></div>
+</div>
+
+</div>
+
+<div class="container">
+<div class="article-page" id="articlePage"></div>
+</div>
+
+<footer>
+جميع الحقوق محفوظة © أخبار المحمودية الآن
+</footer>
+
+<script>
+
+const newsData = [
+
+{
+id:1,
+title:"حملة مكبرة لضبط الأسواق بالمحمودية",
+date:"2026-02-14T10:00:00",
+content:`شنت الأجهزة التنفيذية حملة موسعة لضبط الأسعار داخل الأسواق بالمحمودية.
+وتم تحرير عدة محاضر للمخالفين.
+وأكدت الوحدة المحلية استمرار الحملات اليومية لضبط الأسواق ومنع الاحتكار.`,
+image:"1.png"
+},
+
+{
+id:2,
+title:"تطوير شبكة الإنترنت بالمركز",
+date:"2026-02-14T09:00:00",
+content:`بدأت أعمال تطوير البنية التحتية للإنترنت لتحسين السرعات وتقليل الأعطال،
+ضمن خطة وزارة الاتصالات لتحديث الشبكات بالمناطق الريفية.`,
+image:"enternet.jpg"
+},
+
+{
+id:3,
+title:"ضبط أسمدة زراعية مجهولة المصدر",
+date:"2026-02-14T08:30:00",
+content:`تمكنت الأجهزة المعنية من ضبط كميات من الأسمدة غير المرخصة قبل توزيعها على المزارعين،
+وتم اتخاذ الإجراءات القانونية اللازمة.`,
+image:"11.png"
+},
+
+{
+id:4,
+title:"تحرير محاضر تموينية جديدة",
+date:"2026-02-14T08:00:00",
+content:`أسفرت الحملات الرقابية عن تحرير عدد من المحاضر التموينية لمخالفات تتعلق بعدم الإعلان عن الأسعار.`,
+image:"3.webp"
+},
+
+{
+id:5,
+title:"ارتفاع أسعار الخضروات اليوم",
+date:"2026-02-14T07:30:00",
+content:`شهدت أسعار الخضروات ارتفاعًا ملحوظًا اليوم في الأسواق المحلية،
+مع توقعات باستقرارها خلال الأيام القادمة.`,
+image:"5.jpg"
+},
+
+{
+id:6,
+title:"نفحات روحانية اليوم",
+date:"2026-02-14T07:00:00",
+content:`فقرة يومية تتضمن تذكيرًا بفضل الذكر والصلاة،
+وأهمية الأخلاق الطيبة في التعامل بين الناس.`,
+image:"6.jpg"
+},
+
+{
+id:7,
+title:"حالة الطقس اليوم بالبحيرة",
+date:"2026-02-14T06:30:00",
+content:`توقعت هيئة الأرصاد انخفاضًا في درجات الحرارة مع نشاط للرياح على بعض المناطق.`,
+image:"7.jpg"
+},
+
+{
+id:8,
+title:"توقيع بروتوكول تعاون جديد",
+date:"2026-02-13T18:00:00",
+content:`تم توقيع بروتوكول تعاون لدعم مشروعات الشباب وتوفير فرص تدريبية جديدة بالمركز.`,
+image:"9.webp"
+},
+
+{
+id:9,
+title:"تركيب محطة طاقة شمسية",
+date:"2026-02-13T16:00:00",
+content:`بدأت أعمال تركيب محطة طاقة شمسية لدعم الشبكة الكهربائية ضمن خطة التحول للطاقة النظيفة.`,
+image:"solar.jpg"
+},
+
+{
+id:10,
+title:"تصريح خاص للصحفي محمد نجم",
+date:"2026-02-13T14:00:00",
+content:`أكد الصحفي محمد نجم استمرار نقل الأخبار من مصادر موثوقة بالمحمودية لحظة بلحظة.`,
+image:"negm.jpg"
+},
+
+{
+id:11,
+title:"فيديو تغطية خاصة",
+date:"2026-02-13T12:00:00",
+content:`مشاهدة فيديو تغطية خاصة لأحداث اليوم بالمحمودية.`,
+video:"1.mp4",
+image:"FB_IMG_1770901917650.jpg"
+}
+
+];
+
+newsData.sort((a,b)=> new Date(b.date)-new Date(a.date));
+
+const home = document.getElementById("home");
+const archive = document.getElementById("archive");
+
+newsData.forEach(news=>{
+
+let div=document.createElement("div");
+div.className="news";
+div.innerHTML=`
+<h2><span class="urgent">عاجل</span> ${news.title}</h2>
+<div class="meta">${new Date(news.date).toLocaleString('ar-EG')}</div>
+<img src="${news.image}">
+`;
+div.onclick=()=>openArticle(news.id);
+home.appendChild(div);
+
+let link=document.createElement("div");
+link.innerHTML=`<a href="#" onclick="openArticle(${news.id})">${news.title}</a><hr>`;
+archive.appendChild(link);
+
+});
+
+function openArticle(id){
+let article=newsData.find(n=>n.id===id);
+let page=document.getElementById("articlePage");
+page.style.display="block";
+document.getElementById("home").style.display="none";
+
+page.innerHTML=`
+<h2><span class="urgent">عاجل</span> ${article.title}</h2>
+<div class="meta">${new Date(article.date).toLocaleString('ar-EG')}</div>
+<p>${article.content}</p>
+${article.video? `<video controls><source src="${article.video}" type="video/mp4"></video>`:''}
+<img src="${article.image}">
+<br><br>
+<button onclick="showHome()">العودة للرئيسية</button>
+`;
+window.scrollTo(0,0);
+}
+
+function showHome(){
+document.getElementById("home").style.display="block";
+document.getElementById("articlePage").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
