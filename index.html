@@ -4,108 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>أخبار المحمودية الآن | موقع إخباري رسمي</title>
-<meta name="description" content="أخبار المحمودية الآن - متابعة لحظة بلحظة لأهم الأخبار المحلية بمحافظة البحيرة من مصادر موثوقة.">
-
-<!-- Open Graph -->
-<meta property="og:title" content="أخبار المحمودية الآن">
-<meta property="og:description" content="تابع أحدث أخبار المحمودية والبحيرة لحظة بلحظة">
-<meta property="og:image" content="1.png">
-<meta property="og:type" content="website">
+<title>أخبار المحمودية الآن</title>
 
 <style>
+
 body{
 margin:0;
-font-family:Tahoma;
-background:#f4f4f4;
+font-family:'Tahoma';
+background:linear-gradient(135deg,#f2f2f2,#e6e6e6);
 }
 
 header{
-background:#b30000;
+background:linear-gradient(90deg,#990000,#cc0000);
 color:#fff;
-padding:20px;
 text-align:center;
-font-size:30px;
+padding:25px;
+font-size:32px;
 font-weight:bold;
+letter-spacing:2px;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
 
 nav{
 background:#111;
-color:#fff;
 text-align:center;
-padding:10px;
+padding:12px;
 }
 
 nav a{
 color:#fff;
-margin:0 15px;
 text-decoration:none;
+margin:0 15px;
 font-weight:bold;
 }
 
 .container{
 width:95%;
 max-width:1200px;
-margin:auto;
-margin-top:20px;
-display:flex;
-gap:20px;
-}
-
-.main{
-flex:3;
-}
-
-.sidebar{
-flex:1;
-background:#fff;
-padding:15px;
-border-radius:6px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-height:fit-content;
+margin:30px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
 }
 
 .news{
 background:#fff;
-margin-bottom:20px;
-padding:15px;
-border-radius:6px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-cursor:pointer;
+border-radius:15px;
+padding:20px;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.news:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
 }
 
 .news h2{
-margin:0 0 10px;
-color:#b30000;
+color:#990000;
+margin-top:0;
+font-size:24px;
+line-height:1.6;
 }
 
 .meta{
 font-size:14px;
-color:#666;
+color:#777;
 margin-bottom:10px;
-}
-
-.urgent{
-background:red;
-color:#fff;
-padding:3px 8px;
-font-size:13px;
-border-radius:4px;
-margin-left:5px;
 }
 
 img,video{
 width:100%;
-border-radius:5px;
-margin-top:10px;
+border-radius:10px;
+margin-top:15px;
 }
 
-.article-page{
-display:none;
-background:#fff;
-padding:20px;
-border-radius:6px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+.urgent{
+position:absolute;
+top:15px;
+left:15px;
+background:red;
+color:#fff;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
+animation:flash 1s infinite alternate;
+}
+
+@keyframes flash{
+from{opacity:1;transform:scale(1);}
+to{opacity:0.4;transform:scale(1.1);}
+}
+
+.intro{
+font-weight:bold;
+color:#333;
+margin-bottom:10px;
 }
 
 footer{
@@ -113,8 +110,15 @@ background:#111;
 color:#fff;
 text-align:center;
 padding:20px;
-margin-top:30px;
+margin-top:40px;
 }
+
+@media(max-width:768px){
+.container{
+grid-template-columns:1fr;
+}
+}
+
 </style>
 </head>
 <body>
@@ -122,31 +126,52 @@ margin-top:30px;
 <header>أخبار المحمودية الآن</header>
 
 <nav>
-<a href="#" onclick="showHome()">الرئيسية</a>
-<a href="#archive">الأرشيف</a>
+<a href="#">الرئيسية</a>
+<a href="#">أحدث الأخبار</a>
 </nav>
 
 <div class="container">
 
-<div class="main" id="home"></div>
-
-<div class="sidebar">
-<h3>أرشيف الأخبار</h3>
-<div id="archive"></div>
+<!-- خبر 1 -->
+<div class="news">
+<div class="urgent">عاجل</div>
+<h2>حملة مكبرة لضبط الأسواق بالمحمودية</h2>
+<div class="meta">14 فبراير 2026 - 10:00 صباحًا</div>
+<div class="intro">أشار الصحفي الكبير محمد نجم أن الأجهزة التنفيذية شنت حملة موسعة لضبط الأسعار داخل الأسواق بالمحمودية.</div>
+<p>
+وأكدت المصادر استمرار الحملات اليومية لمنع الاحتكار ومتابعة التجار المخالفين،
+مع اتخاذ إجراءات قانونية فورية ضد أي تجاوزات.
+</p>
+<img src="1.png">
 </div>
 
+<!-- خبر 2 -->
+<div class="news">
+<div class="urgent">عاجل</div>
+<h2>تطوير شبكة الإنترنت بالمركز</h2>
+<div class="meta">14 فبراير 2026 - 9:00 صباحًا</div>
+<div class="intro">أشار الصحفي الكبير محمد نجم أن أعمال تطوير البنية التحتية للإنترنت بدأت فعليًا بالمركز.</div>
+<p>
+وذلك ضمن خطة شاملة لرفع كفاءة الشبكات وتحسين جودة الخدمة وتقليل الأعطال،
+بالتعاون مع الجهات المختصة.
+</p>
+<img src="enternet.jpg">
 </div>
 
-<div class="container">
-<div class="article-page" id="articlePage"></div>
+<!-- خبر 3 -->
+<div class="news">
+<div class="urgent">عاجل</div>
+<h2>ضبط أسمدة زراعية مجهولة المصدر</h2>
+<div class="meta">14 فبراير 2026 - 8:30 صباحًا</div>
+<div class="intro">أشار الصحفي الكبير محمد نجم أن الجهات الرقابية تمكنت من ضبط كميات من الأسمدة غير المرخصة.</div>
+<p>
+وتم التحفظ على المضبوطات، واتخاذ الإجراءات القانونية،
+لحماية المزارعين وضمان جودة المنتجات الزراعية.
+</p>
+<img src="11.png">
 </div>
 
-<footer>
-جميع الحقوق محفوظة © أخبار المحمودية الآن
-</footer>
-
-<script>
-
+<!-- كمل بنفس الشكل لباقي الأخبار بنفس التنسيق -->
 const newsData = [
 
 {
@@ -248,51 +273,11 @@ image:"FB_IMG_1770901917650.jpg"
 
 newsData.sort((a,b)=> new Date(b.date)-new Date(a.date));
 
-const home = document.getElementById("home");
-const archive = document.getElementById("archive");
+</div>
 
-newsData.forEach(news=>{
-
-let div=document.createElement("div");
-div.className="news";
-div.innerHTML=`
-<h2><span class="urgent">عاجل</span> ${news.title}</h2>
-<div class="meta">${new Date(news.date).toLocaleString('ar-EG')}</div>
-<img src="${news.image}">
-`;
-div.onclick=()=>openArticle(news.id);
-home.appendChild(div);
-
-let link=document.createElement("div");
-link.innerHTML=`<a href="#" onclick="openArticle(${news.id})">${news.title}</a><hr>`;
-archive.appendChild(link);
-
-});
-
-function openArticle(id){
-let article=newsData.find(n=>n.id===id);
-let page=document.getElementById("articlePage");
-page.style.display="block";
-document.getElementById("home").style.display="none";
-
-page.innerHTML=`
-<h2><span class="urgent">عاجل</span> ${article.title}</h2>
-<div class="meta">${new Date(article.date).toLocaleString('ar-EG')}</div>
-<p>${article.content}</p>
-${article.video? `<video controls><source src="${article.video}" type="video/mp4"></video>`:''}
-<img src="${article.image}">
-<br><br>
-<button onclick="showHome()">العودة للرئيسية</button>
-`;
-window.scrollTo(0,0);
-}
-
-function showHome(){
-document.getElementById("home").style.display="block";
-document.getElementById("articlePage").style.display="none";
-}
-
-</script>
+<footer>
+جميع الحقوق محفوظة © أخبار المحمودية الآن
+</footer>
 
 </body>
 </html>
